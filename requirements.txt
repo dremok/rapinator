@@ -1,1 +1,1 @@
-lyricsgenius==0.3
+lyricsgenius==1.7.0
