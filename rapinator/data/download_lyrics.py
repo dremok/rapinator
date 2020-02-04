@@ -1,8 +1,8 @@
 import concurrent.futures
 import sys
 
-from rapinator import Genius
-from rapinator import get_all_rappers
+from rapinator.data.genius import Genius
+from rapinator.data.genius import get_all_rappers
 
 
 def download_artist(artist_name):
