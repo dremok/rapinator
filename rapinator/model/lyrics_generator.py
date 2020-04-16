@@ -11,10 +11,12 @@ class LyricsGenerator:
     def parse_lyrics(self, raw_lyrics):
         m = re.search('<<.+? - (.+?)>>', raw_lyrics)
         try:
-            title = m.group(1)
+            title = m.group(1).strip()
         except Exception:
             title = 'Untitled'
-        whitelist = set("1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' \n[]()$.,")
-        lyrics = raw_lyrics[raw_lyrics.index('\n') + 1:raw_lyrics.rfind('\n')]
-        lyrics = re.sub(r'\n\n', '\n', lyrics).strip().rstrip()
+        whitelist = set("1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' \n[]()$.,:&")
+        lyrics = raw_lyrics[:raw_lyrics.rfind('***')].replace('*', '')
+        lyrics = lyrics[lyrics.index('\n') + 1:lyrics.rfind('\n')]
+        lyrics = re.sub(r'\n\n', '\n', lyrics).strip()
+        lyrics = re.sub(r'[^\n]\n\[', '\n\n[', lyrics)
         return title, ''.join(filter(whitelist.__contains__, lyrics))
