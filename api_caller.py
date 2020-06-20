@@ -2,9 +2,9 @@ import json
 
 import requests
 
-artist = 'Yung Lean'
+artist = 'Eminem'
 
-response = requests.get(f'http://localhost:8000/song?artist={artist}')
+response = requests.get(f'http://13.49.79.162:8003/song?artist={artist}')
 song_dict = json.loads(response.content.decode('UTF-8'))
 
 song_title = song_dict['title']
