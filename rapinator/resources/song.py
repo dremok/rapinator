@@ -3,12 +3,11 @@ import json
 import falcon
 
 from rapinator.model.lyrics_generator import LyricsGenerator
-from rapinator.model.text_model import GPT2
 
 
 class SongResource:
-    def __init__(self):
-        self.generator = LyricsGenerator(GPT2())
+    def __init__(self, text_model):
+        self.generator = LyricsGenerator(text_model)
 
     def on_get(self, req, resp):
         print(req.query_string)
