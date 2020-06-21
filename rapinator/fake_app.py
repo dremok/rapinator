@@ -1,6 +1,6 @@
 import falcon
 
-from rapinator.model.text_model import StaticModel
+from rapinator.model.static_model import StaticModel
 from rapinator.resources.song import SongResource
 
 api = falcon.API()

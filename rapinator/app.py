@@ -1,6 +1,6 @@
 import falcon
 
-from rapinator.model.text_model import GPT2
+from rapinator.model.transformer_model import GPT2
 from rapinator.resources.song import SongResource
 
 api = falcon.API()
